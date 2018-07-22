@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CoDriver</string>
+    <string name="action_settings">Settings</string>
+    <string name="map_api_key">AIzaSyDQo5AfoznMIbTJXYkZWnX2o6UwAEFsVCQ</string>
+
+    <string name="txt_btn">GET DIRECTIONS</string>
+    <string name="txt_dstn">Destination Point(city,state,country)</string>
+    <string name="txt_start">Starting Point (city,state,country)</string>
+    <string name="str_info">space(\" \") must be replaced with \"+\".For example Jersey City must be replaced with Jersey+City</string>
+</resources>
