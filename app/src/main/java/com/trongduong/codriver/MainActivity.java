@@ -201,10 +201,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
                 Coordinate current_location = new Coordinate(location.getLatitude(),location.getLongitude());
-                Log.i("vai lon 7",location.getLatitude() + " " + location.getLongitude());
                 arrayAddress[0] = new Coordinate(location.getLatitude(), location.getLongitude());
                 //ArrayList<View> allViews = getAllChildren(SieuBuLayout);
-                //Log.i("vai lon 2", Double.toString(allViews.size()));
 
                 ArrayList<EditText> myEditTextList = new ArrayList<>();
                 Log.i("số children", String.valueOf(num_of_Address));
@@ -291,7 +289,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Criteria criteria = new Criteria();
         Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria,false));
         Coordinate current_location = new Coordinate(location.getLatitude(),location.getLongitude());
-        Log.i("vai lon 6",location.getLatitude() + " " + location.getLongitude());
 
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
@@ -427,7 +424,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         protected void onPostExecute(String s) {
             try{
-                Log.i("vai lon 3", s);
                 JSONObject jsonObject = new JSONObject(s);
 
                 String lat = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
@@ -436,7 +432,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .getJSONObject("location").get("lng").toString();
 
                 txtCoord.setText(String.format("Coordinates : %s / %s ",lat,lng));
-                Log.i("vai lon 5", "[" + lat + " " + lng + "" + current_index + "]");
                 arrayAddress[current_index] = new Coordinate(Double.parseDouble(lat),Double.parseDouble(lng));
 
                 if(dialog.isShowing())
@@ -455,7 +450,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             lon = y;
         }
         private void getdata(){
-            Log.i("vai lon 9", lat + " " + lon);
         }
     }
 

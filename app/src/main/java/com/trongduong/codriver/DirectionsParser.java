@@ -28,13 +28,10 @@ public class DirectionsParser {
         JSONArray jSteps = null;
         Double dist = 0.0;
 
-        Log.i("vai lon 4", jObject.toString());
         try {
 
 
             jRoutes = jObject.getJSONArray("routes");
-
-            Log.i("vai lon 5", jRoutes.get(0).toString());
 
             JSONObject routes2 = jRoutes.getJSONObject(0);
 
