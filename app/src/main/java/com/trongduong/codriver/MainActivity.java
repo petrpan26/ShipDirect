@@ -205,16 +205,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 //ArrayList<View> allViews = getAllChildren(SieuBuLayout);
 
                 ArrayList<EditText> myEditTextList = new ArrayList<>();
-                Log.i("số children", String.valueOf(num_of_Address));
-                for(int i = 0; i < num_of_Address; i++)
-                    if (listAddress.getChildAt( i ) instanceof EditText)
-                    {
-                        myEditTextList.add( (EditText) listAddress.getChildAt(i));
-                        current_index = i+1;
-                        if (i>=3) {
-                            new GetCoordinates().execute(((EditText)myEditTextList.get(i)).getText().toString().replace(" ", "+"));
-                        }
-                    }
+//                Log.i("số children", String.valueOf(num_of_Address));
+//                for(int i = 0; i < num_of_Address; i++)
+//                    if (listAddress.getChildAt( i ) instanceof EditText)
+//                    {
+//                        myEditTextList.add( (EditText) listAddress.getChildAt(i));
+//                        current_index = i+1;
+//                        if (i>=3) {
+//                            new GetCoordinates().execute(((EditText)myEditTextList.get(i)).getText().toString().replace(" ", "+"));
+//                        }
+//                    }
 
 
 
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 for (double[] row: distance_matrix)
                     Arrays.fill(row, 0.0);
 
-                for (int i=0; i < num_of_Address; i++){
+                /*for (int i=0; i < num_of_Address; i++){
                     for (int j=0; j < num_of_Address; j++) {
                         if (i==j) {
                             distance_matrix[i][j] = 0;
@@ -261,6 +261,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             TaskRequestDirections taskRequestDirections = new TaskRequestDirections();
                             taskRequestDirections.execute(url);
                         }
+                    }
+                }*/
+
+                distance_matrix[0][1] = 1;
+                distance_matrix[0][2] = 6.6;
+                distance_matrix[0][3] = 2;
+                distance_matrix[1][2] = 6.7;
+                distance_matrix[1][3] = 2.5;
+                distance_matrix[2][3] = 7.5;
+
+                for (int i=0; i<=3; i++){
+                    for (int j=0; j<=3; j++) {
+                        if (i==j) {
+                            distance_matrix[i][j] = 0;
+                        } else if (i>j) {
+                            distance_matrix[i][j] = distance_matrix[j][i];
+                        }
+                        Log.i("Distance", String.valueOf(distance_matrix[i][j]));
                     }
                 }
 

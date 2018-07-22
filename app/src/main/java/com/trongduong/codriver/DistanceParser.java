@@ -35,6 +35,8 @@ public class DistanceParser {
 
             jRoutes = jObject.getJSONArray("routes");
 
+            Log.i("DBG2", jRoutes.get(0).toString());
+
             JSONObject routes2 = jRoutes.getJSONObject(0);
 
             JSONArray legs = routes2.getJSONArray("legs");
